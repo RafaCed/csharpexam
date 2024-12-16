@@ -4,37 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_1
+namespace Task_2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter an integer: ");
-            int intValue = Convert.ToInt32(Console.ReadLine());
-            
-            Console.Write("Enter a double: ");
-            double doubleValue = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter a number: ");
+            string input = Console.ReadLine();
+            double number;
 
-            Console.Write("Enter a float: ");
-            float floatValue = Convert.ToSingle(Console.ReadLine());
+            if (double.TryParse(input, out number))
+            {
+                if (number > 0) //checks if input is positive
+                {
+                    Console.WriteLine("The number is positive. ");
+                }
+                else if (number < 0) // checks if input is negative
+                {
+                    Console.WriteLine("The number is negative. ");
+                }
+                else // checks if input is zero
+                {
+                    Console.WriteLine("The number is zero. ");
+                }
+            }
+            else // invalid input message
+            {
+                Console.WriteLine("Invalid input. ");
+            }
 
-            Console.Write("Enter a string: ");
-            string stringValue = Console.ReadLine();
 
-            Console.WriteLine("\nYour values: ");
-            Console.WriteLine($"Integer: {intValue}");
-            Console.WriteLine($"Double: {doubleValue}");
-            Console.WriteLine($"Float: {floatValue}");
-            Console.WriteLine($"String: {stringValue}");
 
-            Console.WriteLine("\nExplanations: ");
-            Console.WriteLine("Int: Heltal utan decimaler");
-            Console.WriteLine("Double: 64-bit decimal tal, mer precis än float");
-            Console.WriteLine("Float: 32-bit decimal tal");
-            Console.WriteLine("String: text");
 
-            
+
             Console.ReadLine();
         }
     }

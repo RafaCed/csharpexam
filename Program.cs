@@ -4,40 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_2
+namespace Task_3
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter a number: ");
-            string input = Console.ReadLine();
-            double number;
-
-            if (double.TryParse(input, out number))
+            string[] names = { "Bob", "Steve", "Nina" }; // first array
+            int[] numbers = { 5, 57, 87, 1, 150, 32, 14 }; // second array
+            // loops through the names and adds "Goodbye" before the name
+            foreach (string name in names)
             {
-                if (number > 0) //checks if input is positive
-                {
-                    Console.WriteLine("The number is positive. ");
-                }
-                else if (number < 0) // checks if input is negative
-                {
-                    Console.WriteLine("The number is negative. ");
-                }
-                else // checks if input is zero
-                {
-                    Console.WriteLine("The number is zero. ");
-                }
+                Console.WriteLine($"Goodbye {name}"); //goodbye message
             }
-            else // invalid input message
+            // number array sorting
+            Array.Sort( numbers );
+            int[] newNumbers = new int[numbers.Length - 1];
+            Array.Copy(numbers, newNumbers, newNumbers.Length);
+
+            Console.WriteLine("\nSorted numbers: ");
+            foreach (int number in numbers)
             {
-                Console.WriteLine("Invalid input. ");
+                Console.WriteLine(number);
             }
-
-
-
-
-
+            
+            
             Console.ReadLine();
         }
     }
